@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Applied";
+}
+
+
+<header>
+    <nav>
+        @Html.Partial("NavMenu", (string)@ViewBag.Role)
+    </nav>
+</header>
+
+
+
+
+<div class="grid-container" style="margin-left: 300px">
+    @foreach (var user in ViewBag.Users)
+    {
+        <div class="card grid-item" style="margin-left: 00px">
+            <div class="container">
+                <h4 style="margin-top : 20px"><b>@user.Name</b></h4>
+                <p style="margin-top: 25px">@user.UserName</p>
+                <form action="/Chatter" method="post">
+                    <input style="display: none" value="@user.UserName" name="username"/>
+                    <input style="display: none" value="get" name="status"/>
+                    <button type="submit" class="btn btn-outline-primary" style="margin-top: 8px; cursor: pointer; margin-left: 8px"> Start Chat </button>
+                </form>
+                
+
+
+            </div>
+        </div>
+
+    }
+</div>
+

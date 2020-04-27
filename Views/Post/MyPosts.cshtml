@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "MyPosts";
+}
+
+<header>
+    <nav>
+        @Html.Partial("NavMenu", (string)@ViewBag.Role)
+    </nav>
+</header>
+
+
+
+
+<div class="grid-container" style="margin-left: 300px">
+    @foreach (var post in ViewBag.Posts)
+    {
+        <div class="card grid-item" style="margin-left: 00px">
+            <div class="container">
+                <h4 style="margin-top : 20px"><b>@post.Title</b></h4>
+                <p style="margin-top: 25px">@post.Content</p>
+                <form>
+                    <input class="btn btn-info" style="margin-top: 8px; cursor: pointer" value="Edit" onclick="location.href='@Url.Action("Edit", "Post")?id='+@post.PostId" />
+                    <input class="btn btn-danger" style="margin-top: 8px; cursor: pointer; margin-left: 8px" value="Delete" onclick="location.href='@Url.Action("Delete", "Post")?id='+@post.PostId" />
+                    <input class="btn btn-info" style="margin-top: 8px; cursor: pointer; margin-left: 8px" value="Applied" onclick="location.href='@Url.Action("Applied", "Post")?id='+@post.PostId" />
+                </form>
+                
+            </div>
+        </div>
+
+    }
+</div>
