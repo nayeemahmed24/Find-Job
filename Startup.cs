@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using InterviewBoard.Hub;
 using InterviewBoard.Models;
+using InterviewBoard.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,9 @@ namespace InterviewBoard
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-             services.AddIdentity<UserAcc, IdentityRole>(config =>
+            services.AddTransient<PostService>();
+            services.AddTransient<AcceptService>();
+            services.AddIdentity<UserAcc, IdentityRole>(config =>
                 {
                     config.Password.RequireDigit = false;
                     config.Password.RequiredLength = 4;
@@ -44,6 +47,7 @@ namespace InterviewBoard
                 config.Cookie.Name = "Identity.Cookie";
                 config.LoginPath = "/Home/Login";
             });
+           
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 

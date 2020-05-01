@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using InterviewBoard.Models;
+using InterviewBoard.Repository;
+using InterviewBoard.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -20,61 +22,38 @@ namespace InterviewBoard.Controllers
         private readonly UserManager<UserAcc> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ApplicationDbContext _db;
+        private readonly PostService _postService;
+        private readonly AcceptService _acceptService;
 
-
-        public HomeController(ApplicationDbContext db,ILogger<HomeController> logger, UserManager<UserAcc> userManager, SignInManager<UserAcc> signInManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(ApplicationDbContext db,ILogger<HomeController> logger, UserManager<UserAcc> userManager, SignInManager<UserAcc> signInManager, RoleManager<IdentityRole> roleManager,PostService postService, AcceptService acceptService)
         {
             _db = db;
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _postService = postService;
+            _acceptService = acceptService;
         }
 
         public async Task<IActionResult> Index()
         {
+            IEnumerable<Post> posts = await _postService.AllPosts();
+            List<Accept> accepts = new List<Accept>();
+            List<Post> Addit = new List<Post>();
 
             string userName = User.Identity.Name;
-            string role = "";
-            if (userName != null)
-            {
-                UserAcc currentUser = await _userManager.FindByNameAsync(userName);
-                if (await _userManager.IsInRoleAsync(currentUser, "golam"))
-                {
-                    role = "golam";
-                }
-            }
-            IEnumerable<Post> posts = await _db.Post.ToListAsync();
-            IEnumerable<Accept> accepts = new List<Accept>();
-            List<Post> Addit = new List<Post>();
+            string role = await ReturnRole();
+            
             if (role == "golam")
             {
-                accepts = await _db.Accept.Where(d => d.Username == userName).ToListAsync();
-
-                foreach (var post in posts)
-                {
-                    var flag = true;
-                    foreach (var accept in accepts)
-                    {
-                        if (accept.PostId == post.PostId) flag = false;
-
-                    }
-
-                    if (flag == true)
-                    {
-                        Debug.Print("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-                        // Addit.Append(post);
-                        Addit.Add(post);
-                    }
-                }
-                Debug.Print(Addit.Count() + "");
-                posts = Addit;
-
+                accepts = await _acceptService.AllAcceptsBasedUsername(userName);
+                posts =  await _postService.AllPostForSeeker(accepts);
             }
 
 
             ViewBag.Posts = posts;
-            ViewBag.Role = await ReturnRole();
+            ViewBag.Role = role;
             ViewBag.Name = await ReturnName();
             
 
@@ -207,17 +186,17 @@ namespace InterviewBoard.Controllers
         public async Task<string> ReturnName()
         {
             string userName = User.Identity.Name;
-            string Role = "";
+            string name = "";
             if (userName != null)
             {
                 UserAcc currentUser = await _userManager.FindByNameAsync(userName);
 
-                Role = currentUser.Name;
+                name = currentUser.Name;
             }
 
 
 
-            return Role;
+            return name;
 
         }
 

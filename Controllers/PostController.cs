@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using InterviewBoard.Models;
+using InterviewBoard.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,21 +16,24 @@ namespace InterviewBoard.Controllers
     {
         private readonly UserManager<UserAcc> _userManager;
         private readonly ApplicationDbContext _db;
+        private readonly PostService _postService;
+        private readonly AcceptService _acceptService;
       
 
-        public PostController( UserManager<UserAcc> userManager, ApplicationDbContext db)
+        public PostController( UserManager<UserAcc> userManager, ApplicationDbContext db,PostService postService, AcceptService acceptService)
         {
             _db = db;
             _userManager = userManager;
-                     
+            _postService = postService;
+            _acceptService = acceptService;
+
         }
         
         
         [Authorize(Roles = "malik")]
         public async Task<IActionResult> Create()
         {
-            ViewBag.Role = await ReturnRole();
-            ViewBag.Name = await ReturnName();
+            await AssignViewBag();
             return View();
         }
         
@@ -44,77 +48,25 @@ namespace InterviewBoard.Controllers
                 UserAcc currentUser = await _userManager.FindByNameAsync(userName);
                 post.user = currentUser;
                 post.Username = currentUser.UserName;
-                await _db.Post.AddAsync(post);
-                await _db.SaveChangesAsync();
+                await _postService.CreatePost(post);
             }
             
 
             return RedirectToAction("Index","Home");
         }
 
-        
-        public async Task<IActionResult> Index()
-        {
-            string userName = User.Identity.Name;
-            string role = "";
-            if (userName != null)
-            {
-                UserAcc currentUser = await _userManager.FindByNameAsync(userName);
-                if (await _userManager.IsInRoleAsync(currentUser, "golam"))
-                {
-                    role = "golam";
-                }
-            }
-            IEnumerable<Post> posts = await _db.Post.ToListAsync();
-            IEnumerable<Accept> accepts = new List<Accept>();
-            List<Post> Addit = new List<Post>();
-            if (role == "golam")
-            {
-                        accepts = await _db.Accept.Where(d => d.Username == userName).ToListAsync();
-                
-                        foreach (var post in posts)
-                        {
-                            var flag = true; 
-                            foreach (var accept in accepts)
-                            {
-                                if (accept.PostId == post.PostId) flag = false;
 
-                            }
-
-                            if (flag == true)
-                            {
-                                Debug.Print("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-                                // Addit.Append(post);
-                                Addit.Add(post);
-                            }
-                        }
-                        Debug.Print(Addit.Count() + "");
-                        posts = Addit;
-
-            }
-
-            
-            ViewBag.Posts = posts;
-            ViewBag.Name = await ReturnName();
-            ViewBag.Role = await ReturnRole();
-            return View();
-        }
-
-        
-        
         [Authorize(Roles = "malik")]
         public async Task<IActionResult> MyPosts()
         {
             string userName = User.Identity.Name;
-            if (userName != null)
-            {
-                UserAcc currentUser = await _userManager.FindByNameAsync(userName);
-                IEnumerable<Post> posts = await _db.Post.Where(d => d.user == currentUser).ToListAsync();
-                ViewBag.Posts = posts;
-            }
-
-            ViewBag.Role = await ReturnRole();
-            ViewBag.Name = await ReturnName();
+            
+            UserAcc currentUser = await _userManager.FindByNameAsync(userName);
+            IEnumerable<Post> posts = await _postService.AllPostsWithUser(currentUser);
+            
+            ViewBag.Posts = posts;
+            await AssignViewBag();
+            
             return View();
         }
 
@@ -125,20 +77,17 @@ namespace InterviewBoard.Controllers
         [Authorize(Roles = "malik")]
         public async Task<IActionResult> Edit(int id)
         {
-            Post Post = await _db.Post.Where(d => d.PostId == id).SingleAsync();
+            Post Post = await _postService.FindPostWithId(id);
             ViewBag.Post = Post;
             return View();
         }
+
         [Authorize(Roles = "malik")]
         [HttpPost]
         public async Task<IActionResult> Edit(Post post)
         {
-            var postE = await _db.Post.Where(d => d.PostId == post.PostId).SingleAsync();
-            postE.Title = post.Title;
-            postE.Content = post.Content;
-
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            await _postService.EditPost(post);
+            return RedirectToAction("MyPosts");
         }
 
 
@@ -150,13 +99,51 @@ namespace InterviewBoard.Controllers
         [Authorize(Roles = "malik")]
         public async Task<IActionResult> Delete(int id)
         {
-            Post post = await _db.Post.Where(s => s.PostId == id).SingleAsync();
-            var result = _db.Post.Remove(post);
-            await _db.SaveChangesAsync();
+            await _postService.DeletePost(id);
             return RedirectToAction("MyPosts");
         }
 
-        
+        public async Task<IActionResult> Applied(int id)
+        {
+            await AssignViewBag();
+            List<Accept> accepts =  await _acceptService.AllAcceptBasedOnPostId(id);
+            List<UserAcc> Users = new List<UserAcc>();
+            foreach (var accept in accepts)
+            {
+                UserAcc us = await _userManager.FindByNameAsync(accept.Username);
+                Users.Add(us);
+
+            }
+            ViewBag.Users = Users;
+            return View();
+        }
+
+        [Authorize(Roles = "golam")]
+        public async Task<IActionResult> MyInterviews()
+        {
+
+            string userName = User.Identity.Name;
+            if (userName != null)
+            {
+                
+                List<Accept> accepts = await _acceptService.AllAcceptsBasedUsername(userName);
+                List<Post> posts = new List<Post>();
+                foreach (var accept in accepts)
+                {
+
+                    Post p = await _postService.FindPostWithId(accept.PostId);
+                    posts.Add(p);
+                }
+                ViewBag.Posts = posts;
+            }
+
+            await AssignViewBag();
+            
+            return View();
+        }
+
+        #region Applied
+
         [HttpGet]
         [Authorize(Roles = "golam")]
         public async Task<IActionResult> Apply(int id)
@@ -170,7 +157,7 @@ namespace InterviewBoard.Controllers
                 accept.Username = accept.user.UserName;
                 await _db.Accept.AddAsync(accept);
                 await _db.SaveChangesAsync();
-                return Json(new {result = "OK"});
+                return Json(new { result = "OK" });
             }
             else
             {
@@ -184,33 +171,9 @@ namespace InterviewBoard.Controllers
         [Authorize(Roles = "golam")]
         public async Task<IActionResult> ApplyStatus(int id)
         {
-            return Json(new {result = await Status(id)});
+            return Json(new { result = await Status(id) });
         }
-        [Authorize(Roles = "golam")]
-        public async Task<IActionResult> MyInterviews()
-        {
-
-            string userName = User.Identity.Name;
-            if (userName != null)
-            {
-                UserAcc currentUser = await _userManager.FindByNameAsync(userName);
-                IEnumerable<Accept> accepts = await _db.Accept.Where(d => d.user == currentUser).ToListAsync();
-                
-                List<Post> posts = new List<Post>();
-                foreach (var accept in accepts)
-                {
-                    
-                    Post p = await _db.Post.Where(d => d.PostId == accept.PostId).SingleAsync();
-                    posts.Add(p);
-
-                }
-                ViewBag.Posts = posts;
-            }
-
-            ViewBag.Role = await ReturnRole();
-            ViewBag.Name = await ReturnName();
-            return View();
-        }
+        
 
 
 
@@ -226,7 +189,7 @@ namespace InterviewBoard.Controllers
             }
             IEnumerable<Accept> check = await _db.Accept.Where(s => s.PostId == id && s.user == currentUser)
                 .ToListAsync();
-            
+
             string res;
             if (check.Count() == 0)
             {
@@ -241,21 +204,8 @@ namespace InterviewBoard.Controllers
 
         }
 
-        public async Task<IActionResult> Applied(int id)
-        {
-            ViewBag.Role = await ReturnRole();
-            ViewBag.Name = await ReturnName();
-            List<Accept> accepts =  await _db.Accept.Where(d => d.PostId == id).ToListAsync();
-            List<UserAcc> Users = new List<UserAcc>();
-            foreach (var accept in accepts)
-            {
-                UserAcc us = await _userManager.FindByNameAsync(accept.Username);
-                Users.Add(us);
+        #endregion
 
-            }
-            ViewBag.Users = Users;
-            return View();
-        }
 
         #region ReturnRole
         public async Task<string> ReturnRole()
@@ -296,6 +246,11 @@ namespace InterviewBoard.Controllers
 
         #endregion
 
+        public async Task AssignViewBag()
+        {
+            ViewBag.Role = await ReturnRole();
+            ViewBag.Name = await ReturnName();
+        }
 
     }
 }

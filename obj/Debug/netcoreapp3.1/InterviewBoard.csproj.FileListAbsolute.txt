@@ -413,7 +413,6 @@ E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\InterviewBoard.csproj.CoreCompi
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\InterviewBoard.MvcApplicationPartsAssemblyInfo.cs
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\InterviewBoard.MvcApplicationPartsAssemblyInfo.cache
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\Razor\Views\Post\Create.cshtml.g.cs
-E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\Razor\Views\Post\Index.cshtml.g.cs
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\Razor\Views\Post\MyPosts.cshtml.g.cs
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\Razor\Views\Post\Edit.cshtml.g.cs
 E:\dotnet\InterviewBoard\obj\Debug\netcoreapp3.1\Razor\Views\Post\MyInterviews.cshtml.g.cs
