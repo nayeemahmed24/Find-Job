@@ -17,7 +17,7 @@
             <div class="container">
                 <h4 style="margin-top : 20px"><b>@post.Title</b></h4>
                 <p style="margin-top: 25px">@post.Content</p>
-                @if (ViewBag.Role == "golam")
+                @if (ViewBag.Role == "seeker")
                 {
                     <form>
                         <input class="btn btn-danger" style="margin-top: 8px; cursor: pointer; display: block; margin-left: 8px" value="Apply" id="apply" onclick="clickApply(@post.PostId) " />

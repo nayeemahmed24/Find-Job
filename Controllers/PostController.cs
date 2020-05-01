@@ -30,7 +30,7 @@ namespace InterviewBoard.Controllers
         }
         
         
-        [Authorize(Roles = "malik")]
+        [Authorize(Roles = "giver")]
         public async Task<IActionResult> Create()
         {
             await AssignViewBag();
@@ -38,7 +38,7 @@ namespace InterviewBoard.Controllers
         }
         
         
-        [Authorize(Roles= "malik")]
+        [Authorize(Roles= "giver")]
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {
@@ -56,7 +56,7 @@ namespace InterviewBoard.Controllers
         }
 
 
-        [Authorize(Roles = "malik")]
+        [Authorize(Roles = "giver")]
         public async Task<IActionResult> MyPosts()
         {
             string userName = User.Identity.Name;
@@ -74,7 +74,7 @@ namespace InterviewBoard.Controllers
         
         #region Edit
 
-        [Authorize(Roles = "malik")]
+        [Authorize(Roles = "giver")]
         public async Task<IActionResult> Edit(int id)
         {
             Post Post = await _postService.FindPostWithId(id);
@@ -82,7 +82,7 @@ namespace InterviewBoard.Controllers
             return View();
         }
 
-        [Authorize(Roles = "malik")]
+        [Authorize(Roles = "giver")]
         [HttpPost]
         public async Task<IActionResult> Edit(Post post)
         {
@@ -96,7 +96,7 @@ namespace InterviewBoard.Controllers
 
 
 
-        [Authorize(Roles = "malik")]
+        [Authorize(Roles = "giver")]
         public async Task<IActionResult> Delete(int id)
         {
             await _postService.DeletePost(id);
@@ -118,7 +118,7 @@ namespace InterviewBoard.Controllers
             return View();
         }
 
-        [Authorize(Roles = "golam")]
+        [Authorize(Roles = "seeker")]
         public async Task<IActionResult> MyInterviews()
         {
 
@@ -142,69 +142,22 @@ namespace InterviewBoard.Controllers
             return View();
         }
 
-        #region Applied
+        
 
         [HttpGet]
-        [Authorize(Roles = "golam")]
+        [Authorize(Roles = "seeker")]
         public async Task<IActionResult> Apply(int id)
         {
             Accept accept = new Accept();
-            if (await Status(id) == "OK")
-            {
-                Post post = await _db.Post.Where(s => s.PostId == id).SingleAsync();
-                accept.PostId = post.PostId;
-                accept.user = await _userManager.FindByNameAsync(User.Identity.Name);
-                accept.Username = accept.user.UserName;
-                await _db.Accept.AddAsync(accept);
-                await _db.SaveChangesAsync();
-                return Json(new { result = "OK" });
-            }
-            else
-            {
-                // Error
-                return Json(new { result = "Sry" });
-            }
-
+            Post post = await _postService.FindPostWithId(id);
+            accept.PostId = post.PostId; 
+            accept.user = await _userManager.FindByNameAsync(User.Identity.Name); 
+            accept.Username = accept.user.UserName; 
+            await _acceptService.Create(accept); 
+            return Json(new {result = "OK"});
         }
 
-        [HttpGet]
-        [Authorize(Roles = "golam")]
-        public async Task<IActionResult> ApplyStatus(int id)
-        {
-            return Json(new { result = await Status(id) });
-        }
-        
-
-
-
-
-        public async Task<String> Status(int id)
-        {
-            Post post = await _db.Post.Where(s => s.PostId == id).SingleAsync();
-            string userName = User.Identity.Name;
-            UserAcc currentUser = null;
-            if (userName != null)
-            {
-                currentUser = await _userManager.FindByNameAsync(userName);
-            }
-            IEnumerable<Accept> check = await _db.Accept.Where(s => s.PostId == id && s.user == currentUser)
-                .ToListAsync();
-
-            string res;
-            if (check.Count() == 0)
-            {
-                res = "OK";
-            }
-            else
-            {
-                res = "Sry";
-            }
-
-            return res;
-
-        }
-
-        #endregion
+     
 
 
         #region ReturnRole
@@ -217,13 +170,13 @@ namespace InterviewBoard.Controllers
             {
                 UserAcc currentUser = await _userManager.FindByNameAsync(userName);
 
-                if (await _userManager.IsInRoleAsync(currentUser, "malik"))
+                if (await _userManager.IsInRoleAsync(currentUser, "giver"))
                 {
-                    Role = "malik";
+                    Role = "giver";
                 }
                 else
                 {
-                    Role = "golam";
+                    Role = "seeker";
                 }
             }
             return Role;

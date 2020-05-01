@@ -29,5 +29,11 @@ namespace InterviewBoard.Service
         {
             return await _db.Accept.Where(d => d.PostId == postid).ToListAsync();
         }
+
+        public async Task Create(Accept accept)
+        {
+            await _db.Accept.AddAsync(accept);
+            await _db.SaveChangesAsync();
+        }
     }
 }

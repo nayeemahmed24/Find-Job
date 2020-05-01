@@ -30,6 +30,7 @@ namespace InterviewBoard
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<PostService>();
             services.AddTransient<AcceptService>();
+            services.AddTransient<ChatService>();
             services.AddIdentity<UserAcc, IdentityRole>(config =>
                 {
                     config.Password.RequireDigit = false;

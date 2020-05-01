@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using InterviewBoard.Models;
-using InterviewBoard.Repository;
+﻿using InterviewBoard.Models;
 using InterviewBoard.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace InterviewBoard.Controllers
 {
@@ -21,13 +17,12 @@ namespace InterviewBoard.Controllers
         private readonly SignInManager<UserAcc> _signInManager;
         private readonly UserManager<UserAcc> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly ApplicationDbContext _db;
+
         private readonly PostService _postService;
         private readonly AcceptService _acceptService;
 
-        public HomeController(ApplicationDbContext db,ILogger<HomeController> logger, UserManager<UserAcc> userManager, SignInManager<UserAcc> signInManager, RoleManager<IdentityRole> roleManager,PostService postService, AcceptService acceptService)
+        public HomeController(ILogger<HomeController> logger, UserManager<UserAcc> userManager, SignInManager<UserAcc> signInManager, RoleManager<IdentityRole> roleManager,PostService postService, AcceptService acceptService)
         {
-            _db = db;
             _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
@@ -45,7 +40,7 @@ namespace InterviewBoard.Controllers
             string userName = User.Identity.Name;
             string role = await ReturnRole();
             
-            if (role == "golam")
+            if (role == "seeker")
             {
                 accepts = await _acceptService.AllAcceptsBasedUsername(userName);
                 posts =  await _postService.AllPostForSeeker(accepts);
@@ -61,15 +56,6 @@ namespace InterviewBoard.Controllers
 
         }
 
-        public async Task<IActionResult> CreateChat(Messege messege)
-        {
-            var sender = await _userManager.GetUserAsync(User);
-            // messege.SenderUser = sender.UserName;
-            // messege.SenderUser = sender;
-            await _db.Messege.AddAsync(messege);
-            await _db.SaveChangesAsync();
-            return Ok();
-        }
 
         public IActionResult Privacy()
         {
@@ -82,7 +68,7 @@ namespace InterviewBoard.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize(Roles = "golam")]
+        [Authorize(Roles = "seeker")]
         public IActionResult Secret()
         {
 
@@ -168,13 +154,13 @@ namespace InterviewBoard.Controllers
             {
                 UserAcc currentUser = await _userManager.FindByNameAsync(userName);
 
-                if (await _userManager.IsInRoleAsync(currentUser, "malik"))
+                if (await _userManager.IsInRoleAsync(currentUser, "giver"))
                 {
-                    Role = "malik";
+                    Role = "giver";
                 }
                 else
                 {
-                    Role = "golam";
+                    Role = "seeker";
                 }
             }
 

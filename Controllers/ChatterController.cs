@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using InterviewBoard.Models;
+using InterviewBoard.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,34 +13,31 @@ namespace InterviewBoard.Controllers
 {
     public class ChatterController : Controller
     {
-        private readonly ApplicationDbContext _db;
+        
         private readonly UserManager<UserAcc> _userManager;
-        public ChatterController(ApplicationDbContext db , UserManager<UserAcc> userManager)
+        private readonly ChatService _chatService;
+        public ChatterController( UserManager<UserAcc> userManager,ChatService chatService)
         {
-            _db = db;
+            _chatService = chatService;
             _userManager = userManager;
         }
         [HttpPost]
         public async Task<IActionResult> Index(string username)
         {
-                string senderUserName = User.Identity.Name;
-                string recieveUsername = username;
+            string senderUserName = User.Identity.Name;
+            string recieveUsername = username;
+            List<Messege> messeges = new List<Messege>();
 
+            messeges = await _chatService.AllMessagesWithUsername(senderUserName, recieveUsername);
+            ViewBag.Messeges = messeges;
+            ViewBag.Role = await ReturnRole();
 
-                List<Messege> messeges = new List<Messege>();
-
+            ViewBag.Name = await ReturnName();
+            ViewBag.username = senderUserName; 
+            ViewBag.Reciever = getUserName(recieveUsername);
+            ViewBag.RExtension = getExtension(recieveUsername);
                 
-                messeges = await _db.Messege.Where(d => (d.SenderUsername == senderUserName && d.ReciverUsername == recieveUsername) || (d.SenderUsername == recieveUsername && d.ReciverUsername == senderUserName)).ToListAsync();
-                
-                ViewBag.Messeges = messeges;
-                ViewBag.Role = await ReturnRole();
-
-                ViewBag.Name = await ReturnName();
-                ViewBag.username = senderUserName;
-                ViewBag.Reciever = getUserName(recieveUsername);
-                ViewBag.RExtension = getExtension(recieveUsername);
-                
-                 Debug.Print(getUserName(recieveUsername));
+            Debug.Print(getUserName(recieveUsername));
             return View();
             
 
@@ -54,8 +52,7 @@ namespace InterviewBoard.Controllers
             messege.ReciverUsername = reciever + "@" + ext;
             messege.SenderUsername = senderUserName;
             messege.text = chat;
-            await _db.Messege.AddAsync(messege);
-            await _db.SaveChangesAsync();
+            _chatService.CreateMessage(messege);
             // Debug.Print(chat + " " + reciever + " " + ext);
             return Ok();
         }
@@ -71,13 +68,13 @@ namespace InterviewBoard.Controllers
             {
                 UserAcc currentUser = await _userManager.FindByNameAsync(userName);
 
-                if (await _userManager.IsInRoleAsync(currentUser, "malik"))
+                if (await _userManager.IsInRoleAsync(currentUser, "giver"))
                 {
-                    Role = "malik";
+                    Role = "giver";
                 }
                 else
                 {
-                    Role = "golam";
+                    Role = "seeker";
                 }
             }
             return Role;
