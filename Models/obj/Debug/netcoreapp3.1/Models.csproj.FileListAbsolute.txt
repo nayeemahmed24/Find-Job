@@ -1,0 +1,12 @@
+E:\dotnet\Job-Market\Models\bin\Debug\netcoreapp3.1\Models.deps.json
+E:\dotnet\Job-Market\Models\bin\Debug\netcoreapp3.1\Models.dll
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.csprojAssemblyReference.cache
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+E:\dotnet\Job-Market\Models\bin\Debug\netcoreapp3.1\Models.runtimeconfig.json
+E:\dotnet\Job-Market\Models\bin\Debug\netcoreapp3.1\Models.runtimeconfig.dev.json
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.genruntimeconfig.cache
+E:\dotnet\Job-Market\Models\bin\Debug\netcoreapp3.1\Models.pdb
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.dll
+E:\dotnet\Job-Market\Models\obj\Debug\netcoreapp3.1\Models.pdb
