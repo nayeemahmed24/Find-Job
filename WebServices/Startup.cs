@@ -2,14 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticationService;
+using ManagerService.Manager.AuthenticationManager.RoleManager;
+using ManagerService.Manager.AuthenticationManager.UserManager;
+using ManagerService.Manager.PostManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Migrations;
+using Models;
+using PostService;
+
 
 namespace WebServices
 {
@@ -26,7 +34,21 @@ namespace WebServices
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString(ConnectionConfig.ConnectionType),b => b.MigrationsAssembly("WebServices")));
+            services.AddTransient<PostManger>();
+            services.AddTransient<PostService.PostService>();
 
+            services.AddTransient<Authenticator>();
+            services.AddTransient<RoleManagerBase>();
+            services.AddTransient<UserManagerBase>();
+            services.AddIdentity<UserAccount, IdentityRole>(config =>
+                {
+                    config.Password.RequireDigit = false;
+                    config.Password.RequiredLength = 4;
+                    config.Password.RequireUppercase = false;
+                    config.Password.RequireNonAlphanumeric = false;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
             services.AddControllersWithViews();
         }
 

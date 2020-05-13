@@ -19,15 +19,8 @@ using WebServices;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "E:\dotnet\Job-Market\WebServices\Views\_ViewImports.cshtml"
-using WebServices.Models;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2f5e6d09c5066806eeedde41df392ac487edfa02", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eed3bd5dcc26d330925faf81a64c9ca08f623446", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

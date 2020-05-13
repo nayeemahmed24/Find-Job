@@ -2,8 +2,15 @@ E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Authenticatio
 E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\AuthenticationService.dll
 E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\AuthenticationService.pdb
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csprojAssemblyReference.cache
-E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CoreCompileInputs.cache
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.AssemblyInfoInputs.cache
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.AssemblyInfo.cs
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.dll
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.pdb
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\ManagerService.dll
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Models.dll
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\ManagerService.pdb
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Models.pdb
+E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CopyComplete
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Migrations.dll
+E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Migrations.pdb
+E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CoreCompileInputs.cache

@@ -1,0 +1,16 @@
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\PostService.deps.json
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\PostService.dll
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\PostService.pdb
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\ManagerService.dll
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Migrations.dll
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Models.dll
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\ManagerService.pdb
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Models.pdb
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Migrations.pdb
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.csprojAssemblyReference.cache
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.AssemblyInfoInputs.cache
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.AssemblyInfo.cs
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.csproj.CopyComplete
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.dll
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.pdb
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.csproj.CoreCompileInputs.cache

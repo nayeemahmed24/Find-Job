@@ -1,0 +1,14 @@
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\ManagerService.deps.json
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\ManagerService.dll
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\ManagerService.pdb
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Models.dll
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Models.pdb
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.csprojAssemblyReference.cache
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.AssemblyInfoInputs.cache
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.AssemblyInfo.cs
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.csproj.CopyComplete
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.dll
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.pdb
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Migrations.dll
+E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Migrations.pdb
+E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.csproj.CoreCompileInputs.cache
