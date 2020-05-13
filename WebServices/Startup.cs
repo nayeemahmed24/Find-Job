@@ -25,7 +25,7 @@ namespace WebServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),b => b.MigrationsAssembly("WebServices")));
+            services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString(ConnectionConfig.ConnectionType),b => b.MigrationsAssembly("WebServices")));
 
             services.AddControllersWithViews();
         }

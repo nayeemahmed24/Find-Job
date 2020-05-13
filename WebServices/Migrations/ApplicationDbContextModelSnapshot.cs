@@ -150,6 +150,78 @@ namespace WebServices.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Models.Model.Accept", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("Accept");
+                });
+
+            modelBuilder.Entity("Models.Model.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ReciverUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderUsername")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("senduser")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("senduser");
+
+                    b.ToTable("Messege");
+                });
+
+            modelBuilder.Entity("Models.Model.Post", b =>
+                {
+                    b.Property<int>("PostId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PostId");
+
+                    b.HasIndex("User");
+
+                    b.ToTable("Post");
+                });
+
             modelBuilder.Entity("Models.UserAccount", b =>
                 {
                     b.Property<string>("Id")
@@ -176,10 +248,6 @@ namespace WebServices.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nameab")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -272,6 +340,27 @@ namespace WebServices.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Models.Model.Accept", b =>
+                {
+                    b.HasOne("Models.UserAccount", "user")
+                        .WithMany()
+                        .HasForeignKey("UserID");
+                });
+
+            modelBuilder.Entity("Models.Model.Message", b =>
+                {
+                    b.HasOne("Models.UserAccount", "SenderUser")
+                        .WithMany()
+                        .HasForeignKey("senduser");
+                });
+
+            modelBuilder.Entity("Models.Model.Post", b =>
+                {
+                    b.HasOne("Models.UserAccount", "user")
+                        .WithMany()
+                        .HasForeignKey("User");
                 });
 #pragma warning restore 612, 618
         }
