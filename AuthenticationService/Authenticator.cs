@@ -23,19 +23,21 @@ namespace AuthenticationService
 
         public async  Task<Response> Login(string username, string password)
         {
-            throw new NotImplementedException();
-
+            await _userManagerBase.Login(username, password);
+            return new Response(true);
         }
 
         public async Task<Response> Register(UserAccount user,string password, string rolename)
         {
-
-            throw new NotImplementedException();
+            await _roleManagerBase.CreateRole(rolename);
+            await _userManagerBase.Register(user, password, rolename);
+            return new Response(true);
         }
 
         public async Task<Response> Logout()
         {
-            throw new NotImplementedException();
+            await _userManagerBase.Logout();
+            return new Response(true);
         }
     }
 }

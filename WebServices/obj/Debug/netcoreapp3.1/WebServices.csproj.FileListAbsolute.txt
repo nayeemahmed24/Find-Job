@@ -148,8 +148,6 @@ E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalys
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.csproj.CoreCompileInputs.cache
-E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.MvcApplicationPartsAssemblyInfo.cache
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Login.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Auth\Register.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NavMenu.cshtml.g.cs
@@ -159,3 +157,5 @@ E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\AuthenticationService.p
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\ManagerService.pdb
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\PostService.dll
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\PostService.pdb
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.csproj.CoreCompileInputs.cache
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.MvcApplicationPartsAssemblyInfo.cache

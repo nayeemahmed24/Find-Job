@@ -8,8 +8,8 @@ E:\dotnet\Job-Market\Migrations\bin\Debug\netcoreapp3.1\Migrations.runtimeconfig
 E:\dotnet\Job-Market\Migrations\bin\Debug\netcoreapp3.1\Migrations.runtimeconfig.dev.json
 E:\dotnet\Job-Market\Migrations\bin\Debug\netcoreapp3.1\Migrations.pdb
 E:\dotnet\Job-Market\Migrations\bin\Debug\netcoreapp3.1\Models.pdb
-E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.csproj.CoreCompileInputs.cache
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.csproj.CopyComplete
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.dll
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.pdb
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.genruntimeconfig.cache
+E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.csproj.CoreCompileInputs.cache

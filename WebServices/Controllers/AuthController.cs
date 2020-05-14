@@ -11,8 +11,8 @@ namespace WebServices.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly IUserAuth _userAuth;
-        public AuthController(IUserAuth userAuth)
+        private readonly Authenticator _userAuth;
+        public AuthController(Authenticator userAuth)
         {
             _userAuth = userAuth;
         }
@@ -24,6 +24,12 @@ namespace WebServices.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _userAuth.Logout();
+            return RedirectToAction("Index","Home");
         }
 
         [HttpPost]
