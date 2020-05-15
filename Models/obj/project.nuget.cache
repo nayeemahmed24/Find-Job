@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6LePoouHHRj5ISbIgbrPtwX7oIEgY+WS9cOyin50lj9ZKl4iP3MdQGUi0gveVdNjVvGWdbdDr24cl0E1hV29Kw==",
+  "dgSpecHash": "d4sqyz5foi/rpCgCx9OE/wVBFZ21U/JvqZiUJdYdaHdWuWLAU9wokDzFkwZPeTVDuFIaUDrv4K0Tg6g8Cw87Qw==",
   "success": true,
   "projectFilePath": "E:\\dotnet\\Job-Market\\Models\\Models.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.4\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.4.nupkg.sha512",
+    "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.session\\2.2.0\\microsoft.aspnetcore.session.2.2.0.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

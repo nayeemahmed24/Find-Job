@@ -37,7 +37,7 @@ namespace WebServices
             services.AddTransient<PostManger>();
             services.AddTransient<PostService.PostService>();
 
-            services.AddTransient<Authenticator>();
+            services.AddTransient<AuthenticatorService>();
             services.AddTransient<RoleManagerBase>();
             services.AddTransient<UserManagerBase>();
             services.AddIdentity<UserAccount, IdentityRole>(config =>

@@ -45,9 +45,11 @@ namespace ManagerService.Manager.AuthenticationManager.UserManager
             return new Response(false);
         }
 
-        public Task<Response> Logout()
+        public async Task<Response> Logout()
         {
-            throw new NotImplementedException();
+            await _signInManager.SignOutAsync();
+
+            return new Response(true);
         }
     }
 }

@@ -13,4 +13,3 @@ E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Models.pdb
 E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CopyComplete
 E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Migrations.dll
 E:\dotnet\Job-Market\AuthenticationService\bin\Debug\netcoreapp3.1\Migrations.pdb
-E:\dotnet\Job-Market\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CoreCompileInputs.cache

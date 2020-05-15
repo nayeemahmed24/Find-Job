@@ -12,4 +12,3 @@ E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.csproj.CopyCo
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.dll
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.pdb
 E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.genruntimeconfig.cache
-E:\dotnet\Job-Market\Migrations\obj\Debug\netcoreapp3.1\Migrations.csproj.CoreCompileInputs.cache

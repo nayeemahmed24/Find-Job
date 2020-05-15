@@ -11,8 +11,8 @@ namespace WebServices.Controllers
 {
     public class AuthController : Controller
     {
-        private readonly Authenticator _userAuth;
-        public AuthController(Authenticator userAuth)
+        private readonly AuthenticatorService _userAuth;
+        public AuthController(AuthenticatorService userAuth)
         {
             _userAuth = userAuth;
         }

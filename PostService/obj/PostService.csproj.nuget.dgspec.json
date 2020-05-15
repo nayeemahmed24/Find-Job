@@ -52,6 +52,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [
@@ -118,6 +122,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -194,6 +202,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -277,6 +289,10 @@
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
           "imports": [

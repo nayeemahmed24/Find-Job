@@ -11,4 +11,3 @@ E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.dll
 E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.pdb
 E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Migrations.dll
 E:\dotnet\Job-Market\ManagerService\bin\Debug\netcoreapp3.1\Migrations.pdb
-E:\dotnet\Job-Market\ManagerService\obj\Debug\netcoreapp3.1\ManagerService.csproj.CoreCompileInputs.cache

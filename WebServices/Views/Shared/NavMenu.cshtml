@@ -10,10 +10,34 @@
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
             <ul class="navbar-nav flex-grow-1">
-                 
+                @if (ViewBag.Role == "giver")
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="Create">Create Job</a>
+                    </li>
+
+                    <div class="nav-item justify-content-end mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="MyPosts">My Posts</a>
+                        </li>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Welcome @ViewBag.Name</a>
+                    </li>
+
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                    </li>
+
+                }
+                else if (ViewBag.Role == "")
+                {
                     <div class="nav-item justify-content-end mr-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -26,11 +50,31 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
                     </li>
-                
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <div class="nav-item justify-content-end mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="MyInterviews">My Inteviews</a>
+                        </li>
+
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Welcome @ViewBag.Name</a>
+                    </li>
+
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                    </li>
+
+                }
 
             </ul>
 
-            
+
         </div>
     </div>
 </nav>
