@@ -23,15 +23,15 @@ namespace AuthenticationService
 
         public async  Task<Response> Login(string username, string password)
         {
-            await _userManagerBase.Login(username, password);
-            return new Response(true);
+            return await _userManagerBase.Login(username, password);
+            
         }
 
         public async Task<Response> Register(UserAccount user,string password, string rolename)
         {
             await _roleManagerBase.CreateRole(rolename);
-            await _userManagerBase.Register(user, password, rolename);
-            return new Response(true);
+            return await _userManagerBase.Register(user, password, rolename);
+            
         }
 
         public async Task<Response> Logout()

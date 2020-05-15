@@ -28,15 +28,26 @@ namespace WebServices.Controllers
 
         public async Task<IActionResult> Logout()
         {
-            await _userAuth.Logout();
-            return RedirectToAction("Index","Home");
+            var result = await _userAuth.Logout();
+            if (result.Status)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("SomethingWrong", "Home");
+
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
             var response = await _userAuth.Login(username,password);
-            return RedirectToAction("Index", "Home");
+            
+            if (response.Status)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("SomethingWrong", "Home");
+
         }
 
         [HttpPost]
@@ -51,7 +62,13 @@ namespace WebServices.Controllers
             };
 
             var response = await _userAuth.Register(user,password,roleName);
-            return RedirectToAction("Index", "Home");
+            
+            if (response.Status)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("SomethingWrong", "Home");
+
         }
     }
 }

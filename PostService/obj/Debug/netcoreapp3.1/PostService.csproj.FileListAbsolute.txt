@@ -13,3 +13,4 @@ E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.AssemblyInf
 E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.csproj.CopyComplete
 E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.dll
 E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.pdb
+E:\dotnet\Job-Market\PostService\obj\Debug\netcoreapp3.1\PostService.csproj.CoreCompileInputs.cache

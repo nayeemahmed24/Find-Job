@@ -41,6 +41,10 @@ namespace ManagerService.Manager.AuthenticationManager.UserManager
             if (result.Succeeded)
             {
                 var resultRole = await _userManager.AddToRoleAsync(user, rolename);
+                if (resultRole.Succeeded)
+                {
+                    return new Response(true);
+                }
             }
             return new Response(false);
         }

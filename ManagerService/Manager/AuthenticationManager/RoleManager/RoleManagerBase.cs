@@ -23,7 +23,7 @@ namespace ManagerService.Manager.AuthenticationManager.RoleManager
                 IdentityResult CreateRole = await _roleManager.CreateAsync(new IdentityRole(RoleName));
                 return new Response(true);
             }
-            return new Response(false);
+            return new Response(true);
 
         }
 

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticationService;
+using AuthenticationService.UserInformation;
 using ManagerService.Manager.AuthenticationManager.RoleManager;
+using ManagerService.Manager.AuthenticationManager.UserInfoManager;
 using ManagerService.Manager.AuthenticationManager.UserManager;
 using ManagerService.Manager.PostManager;
 using Microsoft.AspNetCore.Builder;
@@ -40,6 +42,8 @@ namespace WebServices
             services.AddTransient<AuthenticatorService>();
             services.AddTransient<RoleManagerBase>();
             services.AddTransient<UserManagerBase>();
+            services.AddTransient<UserInfoService>();
+            services.AddTransient<UserInfoManager>();
             services.AddIdentity<UserAccount, IdentityRole>(config =>
                 {
                     config.Password.RequireDigit = false;

@@ -24,7 +24,7 @@ namespace AuthenticationService.UserInformation
 
         public async Task<string> GetUserRole(string username)
         {
-            return await _userInfoManager.getUserRole( username);
+            return await _userInfoManager.getUserRole(username);
         }
 
         public async Task<UserInfo> GetUserDetailes(string username)

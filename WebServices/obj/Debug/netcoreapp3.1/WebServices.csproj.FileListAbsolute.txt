@@ -18,7 +18,6 @@ E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.TagHelpers.
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.TagHelpers.output.cache
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.RazorCoreGenerate.cache
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -157,3 +156,6 @@ E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\AuthenticationService.p
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\ManagerService.pdb
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\PostService.dll
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\PostService.pdb
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.csproj.CoreCompileInputs.cache
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.MvcApplicationPartsAssemblyInfo.cache
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Home\SomethingWrong.cshtml.g.cs

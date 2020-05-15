@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AuthenticationService.UserInformation;
 using ManagerService.Manager.AuthenticationManager.UserInfoManager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,22 +14,28 @@ namespace WebServices.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly UserInfoManager _userInfoManager;
+        private readonly UserInfoService _userInfoService;
 
-        public HomeController(ILogger<HomeController> logger, UserInfoManager userInfoManager)
+        public HomeController(ILogger<HomeController> logger, UserInfoService userInfoService)
         {
             _logger = logger;
-            _userInfoManager = userInfoManager;
+            _userInfoService = userInfoService;
         }
 
         public IActionResult Index()
         {
+            AssignViewBag();
             return View();
         }
 
-        private void AssignViewBag()
+        public IActionResult SomethingWrong()
         {
-            ViewBag.UserDetailes = _userInfoManager.getUser(User.Identity.Name);
+            return View();
+        }
+
+        private async void AssignViewBag()
+        {
+            ViewBag.UserDetailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
