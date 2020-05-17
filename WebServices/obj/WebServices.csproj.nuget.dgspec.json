@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj": {
-                "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj"
+              "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj": {
+                "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj"
               },
               "E:\\dotnet\\Job-Market\\Models\\Models.csproj": {
                 "projectPath": "E:\\dotnet\\Job-Market\\Models\\Models.csproj"
@@ -77,12 +77,12 @@
         }
       }
     },
-    "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj": {
+    "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj",
-        "projectName": "ManagerService",
-        "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj",
+        "projectUniqueName": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj",
+        "projectName": "Manager",
+        "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj",
         "packagesPath": "C:\\Users\\nayee\\.nuget\\packages\\",
         "outputPath": "E:\\dotnet\\Job-Market\\ManagerService\\obj\\",
         "projectStyle": "PackageReference",
@@ -337,8 +337,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj": {
-                "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj"
+              "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj": {
+                "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj"
               },
               "E:\\dotnet\\Job-Market\\Models\\Models.csproj": {
                 "projectPath": "E:\\dotnet\\Job-Market\\Models\\Models.csproj"

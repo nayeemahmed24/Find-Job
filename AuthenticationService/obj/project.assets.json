@@ -1656,7 +1656,7 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "ManagerService/1.0.0": {
+      "Manager/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
@@ -1667,10 +1667,10 @@
           "Models": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/ManagerService.dll": {}
+          "bin/placeholder/Manager.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ManagerService.dll": {}
+          "bin/placeholder/Manager.dll": {}
         }
       },
       "Migrations/1.0.0": {
@@ -5890,10 +5890,10 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "ManagerService/1.0.0": {
+    "Manager/1.0.0": {
       "type": "project",
-      "path": "../ManagerService/ManagerService.csproj",
-      "msbuildProject": "../ManagerService/ManagerService.csproj"
+      "path": "../ManagerService/Manager.csproj",
+      "msbuildProject": "../ManagerService/Manager.csproj"
     },
     "Migrations/1.0.0": {
       "type": "project",
@@ -5908,7 +5908,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "ManagerService >= 1.0.0",
+      "Manager >= 1.0.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.4",
       "Microsoft.AspNetCore.Session >= 2.2.0",
@@ -5941,8 +5941,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj": {
-              "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj"
+            "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj": {
+              "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj"
             },
             "E:\\dotnet\\Job-Market\\Models\\Models.csproj": {
               "projectPath": "E:\\dotnet\\Job-Market\\Models\\Models.csproj"

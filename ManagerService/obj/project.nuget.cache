@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e0UpotzAq7nAmQtZPvP07ak+nnmgpclWolwFeqU300sRDIMkQYmF4VeUXQMeRrFjuC7EPCtCEFinE2bS3nfHmA==",
+  "dgSpecHash": "StPCjYSYPqc/3i3WMh4W2xdQNpPF1zEt6CpKvKxnX0gIZtZab7be0bcBf8JKmH+/ZWf+fcfzMbIvogWBd89fAQ==",
   "success": true,
-  "projectFilePath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj",
+  "projectFilePath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\nayee\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

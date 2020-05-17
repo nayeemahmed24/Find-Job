@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Migrations", "Migrations\Mi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{3432AB36-94DF-40F1-B4A2-8D2A20F622AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerService", "ManagerService\ManagerService.csproj", "{CF68FB51-DEF0-49AD-A4A8-147479C02461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "ManagerService\Manager.csproj", "{CF68FB51-DEF0-49AD-A4A8-147479C02461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostService", "PostService\PostService.csproj", "{30243F27-7847-4B13-93E1-E25F241EF32E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostService", "PostService\PostService.csproj", "{30243F27-7847-4B13-93E1-E25F241EF32E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

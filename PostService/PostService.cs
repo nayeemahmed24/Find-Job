@@ -14,8 +14,17 @@ namespace PostService
         }
         public async Task<Response> CreatePost(Post post)
         {
-            await _postManager.Create(post);
-            return new Response(true);
+            return await _postManager.Create(post);
+        }
+
+        public async Task<Response> EditPost(Post Newpost,Post PrevPost)
+        {
+            return await _postManager.EditPost(Newpost, PrevPost);
+        }
+
+        public async Task<Response> DeletePost(Post post)
+        {
+            return await _postManager.DeletePost(post);
         }
     }
 }

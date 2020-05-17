@@ -2329,7 +2329,7 @@
       },
       "AuthenticationService/1.0.0": {
         "dependencies": {
-          "ManagerService": "1.0.0",
+          "Manager": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.4",
           "Microsoft.AspNetCore.Session": "2.2.0",
@@ -2342,7 +2342,7 @@
           "AuthenticationService.dll": {}
         }
       },
-      "ManagerService/1.0.0": {
+      "Manager/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.4",
@@ -2351,10 +2351,10 @@
           "Models": "1.0.0"
         },
         "runtime": {
-          "ManagerService.dll": {}
+          "Manager.dll": {}
         },
         "compile": {
-          "ManagerService.dll": {}
+          "Manager.dll": {}
         }
       },
       "Migrations/1.0.0": {
@@ -2390,7 +2390,7 @@
       },
       "PostService/1.0.0": {
         "dependencies": {
-          "ManagerService": "1.0.0",
+          "Manager": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.4",
           "Microsoft.AspNetCore.Session": "2.2.0",
@@ -5212,7 +5212,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "ManagerService/1.0.0": {
+    "Manager/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

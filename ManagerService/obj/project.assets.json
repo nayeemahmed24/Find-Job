@@ -5899,9 +5899,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj",
-      "projectName": "ManagerService",
-      "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\ManagerService.csproj",
+      "projectUniqueName": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj",
+      "projectName": "Manager",
+      "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj",
       "packagesPath": "C:\\Users\\nayee\\.nuget\\packages\\",
       "outputPath": "E:\\dotnet\\Job-Market\\ManagerService\\obj\\",
       "projectStyle": "PackageReference",
