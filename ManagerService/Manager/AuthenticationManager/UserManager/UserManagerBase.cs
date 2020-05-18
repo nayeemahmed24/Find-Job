@@ -27,7 +27,7 @@ namespace ManagerService.Manager.AuthenticationManager.UserManager
             var user = await _userManager.FindByNameAsync(username);
             if (user != null)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(user, password, true, false);
                 if (result.Succeeded)
                 {
                     return new Response(true);

@@ -24,6 +24,7 @@ namespace WebServices.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             Debug.Print(User.Identity.Name + " Name");
             AssignViewBag();
             return View();
