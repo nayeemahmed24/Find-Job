@@ -26,7 +26,7 @@ namespace WebServices.Controllers
         {
 
             Debug.Print(User.Identity.Name + " Name");
-            AssignViewBag();
+            await AssignViewBag();
             return View();
         }
 
@@ -35,9 +35,11 @@ namespace WebServices.Controllers
             return View();
         }
 
-        private async void AssignViewBag()
+        private async Task AssignViewBag()
         {
-            ViewBag.UserDetailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
+            var detailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
+            ViewBag.Name = detailes.user.Name;
+            ViewBag.Role = detailes.roleName;
         }
 
       

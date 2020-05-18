@@ -13,13 +13,11 @@ namespace WebServices.Controllers
     public class AuthController : Controller
     {
         private readonly AuthenticatorService _userAuth;
-        private readonly SignInManager<UserAccount> _signInManager;
-        private readonly UserManager<UserAccount> _userManager;
+        
 
-        public AuthController(AuthenticatorService userAuth,UserManager<UserAccount> userManager, SignInManager<UserAccount> signInManager)
+        public AuthController(AuthenticatorService userAuth)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
+            
             _userAuth = userAuth;
         }
 
@@ -46,13 +44,10 @@ namespace WebServices.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
-            //var response = await _userAuth.Login(username,password);
-            var user = await _userManager.FindByNameAsync(username);
-            if (user != null)
-            {
-                
-                var result = await _signInManager.PasswordSignInAsync(user, password, true, false);
-                Debug.Print(_signInManager.IsSignedIn(User) + "");
+            var response = await _userAuth.Login(username,password);
+            
+            if (response.Status)
+            { 
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("SomethingWrong", "Home");

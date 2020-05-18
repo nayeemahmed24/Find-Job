@@ -13,7 +13,7 @@
 
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
             <ul class="navbar-nav flex-grow-1">
-                @if (ViewBag.UserDetailes.roleName == "giver")
+                @if (ViewBag.Role == "giver")
                 {
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -28,7 +28,7 @@
 @*                         </li> *@
 @*                     </div> *@
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Welcome @ViewBag.UserDetailes.user.Name</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Welcome @ViewBag.Name</a>
                     </li>
 
                     <li class="nav-item justify-content-end">
@@ -36,7 +36,7 @@
                     </li>
 
                 }
-                else if (ViewBag.UserDetailes.roleName == "")
+                else if (ViewBag.Role == "")
                 {
                     <div class="nav-item justify-content-end mr-auto">
                         <li class="nav-item">
