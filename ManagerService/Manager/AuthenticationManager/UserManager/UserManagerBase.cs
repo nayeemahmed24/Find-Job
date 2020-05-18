@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using ManagerService.Manager.AuthenticationManager.RoleManager;
@@ -12,7 +13,7 @@ namespace ManagerService.Manager.AuthenticationManager.UserManager
 {
     public class UserManagerBase :IUserManager
     {
-        private readonly SignInManager <UserAccount> _signInManager;
+        private readonly SignInManager<UserAccount> _signInManager;
         private readonly UserManager<UserAccount> _userManager;
         
         

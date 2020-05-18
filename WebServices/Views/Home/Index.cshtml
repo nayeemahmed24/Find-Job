@@ -1,9 +1,10 @@
-﻿@{
+﻿@using Models.View_Model
+@{
     ViewData["Title"] = "Home Page";
 }
 <header>
     <nav>
-        @Html.Partial("NavMenu")
+        @Html.Partial("NavMenu", (UserInfo)@ViewBag.UserDetailes)
     </nav>
 </header>
 

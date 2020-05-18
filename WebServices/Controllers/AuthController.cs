@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticationService;
@@ -41,7 +42,6 @@ namespace WebServices.Controllers
         public async Task<IActionResult> Login(string username, string password)
         {
             var response = await _userAuth.Login(username,password);
-            
             if (response.Status)
             {
                 return RedirectToAction("Index", "Home");

@@ -53,6 +53,12 @@ namespace WebServices
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "Identity.Cookie";
+                config.LoginPath = "/Auth/Login";
+            });
+
             services.AddControllersWithViews();
         }
 

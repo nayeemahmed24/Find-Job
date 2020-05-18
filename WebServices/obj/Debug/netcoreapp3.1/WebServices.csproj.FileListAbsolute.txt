@@ -159,3 +159,5 @@ E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\WebServices.MvcApplicat
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Home\SomethingWrong.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\Manager.dll
 E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\Manager.pdb
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\Create.cshtml.g.cs
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\Edit.cshtml.g.cs
