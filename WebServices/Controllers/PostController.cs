@@ -19,34 +19,65 @@ namespace WebServices.Controllers
             _userInfoService = userInfoService;
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            AssignViewBag();
+            await AssignViewBag();
             return View();
         }
-        public IActionResult Edit()
+
+        public async Task<IActionResult> MyPosts()
         {
-            AssignViewBag();
+            
+            await AssignViewBag();
+            List<Post> posts = await _postService.FindPostByUsername(User.Identity.Name);
+            ViewBag.Posts = posts;
             return View();
+        }
+        
+        
+        public async Task<IActionResult> Edit(int id)
+        {
+            await AssignViewBag();
+            Post Post = await _postService.FindPostById(id);
+            ViewBag.Post = Post;
+            return View();
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var response = await _postService.DeletePost(id);
+            if (response.Status) return RedirectToAction("MyPosts");
+            return RedirectToAction("SomethingWrong", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Post post)
+        {
+            var response = await _postService.EditPost(post,new Post());
+            if (response.Status) return RedirectToAction("MyPosts");
+            return RedirectToAction("SomethingWrong","Home");
         }
 
 
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {
-            var response =  await _postService.CreatePost(post);
+            
+            var response =  await _postService.CreatePost(post,User.Identity.Name);
             if (response.Status)
             {
-                // My Posts
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("MyPosts");
             }
 
             return RedirectToAction("SomethingWrong", "Home");
         }
 
-        private async void AssignViewBag()
+
+        private async Task AssignViewBag()
         {
-            ViewBag.UserDetailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
+            var detailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
+            ViewBag.Name = detailes.user.Name;
+            ViewBag.Role = detailes.roleName;
         }
     }
 }

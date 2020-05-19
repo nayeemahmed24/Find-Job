@@ -337,6 +337,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "E:\\dotnet\\Job-Market\\AuthenticationService\\AuthenticationService.csproj": {
+                "projectPath": "E:\\dotnet\\Job-Market\\AuthenticationService\\AuthenticationService.csproj"
+              },
               "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj": {
                 "projectPath": "E:\\dotnet\\Job-Market\\ManagerService\\Manager.csproj"
               },

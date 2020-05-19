@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
 using Models.Model;
 
 namespace ManagerService.Manager.PostManager
@@ -12,5 +13,6 @@ namespace ManagerService.Manager.PostManager
         public Task<Response> EditPost(Post Newpost, Post PrevPost);
         public Task<Response> DeletePost(Post post);
         public Task<Post> SearchPostByPostId(int postid);
+        public Task<List<Post>> SearchPostByUser(UserAccount user);
     }
 }

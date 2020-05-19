@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Migrations;
+using Models;
 using Models.Model;
 
 namespace ManagerService.Manager.PostManager
@@ -56,6 +57,11 @@ namespace ManagerService.Manager.PostManager
         public async Task<Post> SearchPostByPostId(int postid)
         {
             return await _db.Post.Where(d => d.PostId == postid).SingleAsync<Post>();
+        }
+
+        public async Task<List<Post>> SearchPostByUser(UserAccount user)
+        {
+            return await _db.Post.Where(u => u.user == user).ToListAsync();
         }
     }
 }
