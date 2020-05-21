@@ -150,7 +150,7 @@ namespace WebServices.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Models.Model.Accept", b =>
+            modelBuilder.Entity("Models.Model.Apply", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -342,7 +342,7 @@ namespace WebServices.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Models.Model.Accept", b =>
+            modelBuilder.Entity("Models.Model.Apply", b =>
                 {
                     b.HasOne("Models.UserAccount", "user")
                         .WithMany()

@@ -1656,6 +1656,21 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "ApplyService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AuthenticationService": "1.0.0",
+          "Manager": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ApplyService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApplyService.dll": {}
+        }
+      },
       "AuthenticationService/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -5907,6 +5922,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "ApplyService/1.0.0": {
+      "type": "project",
+      "path": "../ApplyService/ApplyService.csproj",
+      "msbuildProject": "../ApplyService/ApplyService.csproj"
+    },
     "AuthenticationService/1.0.0": {
       "type": "project",
       "path": "../AuthenticationService/AuthenticationService.csproj",
@@ -5930,6 +5950,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ApplyService >= 1.0.0",
       "AuthenticationService >= 1.0.0",
       "Manager >= 1.0.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
@@ -5964,6 +5985,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "E:\\dotnet\\Job-Market\\ApplyService\\ApplyService.csproj": {
+              "projectPath": "E:\\dotnet\\Job-Market\\ApplyService\\ApplyService.csproj"
+            },
             "E:\\dotnet\\Job-Market\\AuthenticationService\\AuthenticationService.csproj": {
               "projectPath": "E:\\dotnet\\Job-Market\\AuthenticationService\\AuthenticationService.csproj"
             },

@@ -17,7 +17,7 @@ namespace Migrations
         public DbSet<Post> Post { get; set; }
 
 
-        public DbSet<Accept> Accept { get; set; }
+        public DbSet<Apply> Apply { get; set; }
 
         public DbSet<Message> Messege { get; set; }
     }

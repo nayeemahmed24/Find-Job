@@ -16,3 +16,5 @@ E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Manager.dll
 E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\Manager.pdb
 E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\AuthenticationService.dll
 E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\AuthenticationService.pdb
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\ApplyService.dll
+E:\dotnet\Job-Market\PostService\bin\Debug\netcoreapp3.1\ApplyService.pdb

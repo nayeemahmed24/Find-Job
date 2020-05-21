@@ -162,3 +162,6 @@ E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\Manager.pdb
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\Create.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\Edit.cshtml.g.cs
 E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\MyPosts.cshtml.g.cs
+E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\ApplyService.dll
+E:\dotnet\Job-Market\WebServices\bin\Debug\netcoreapp3.1\ApplyService.pdb
+E:\dotnet\Job-Market\WebServices\obj\Debug\netcoreapp3.1\Razor\Views\Post\Index.cshtml.g.cs

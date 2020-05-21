@@ -19,6 +19,12 @@ namespace ManagerService.Manager.PostManager
         {
             _db = db;
         }
+
+        public async Task<List<Post>> AllPosts()
+        {
+            return await _db.Post.ToListAsync();
+        }
+
         public async Task<Response> Create(Post post)
         {
             var result = await _db.Post.AddAsync(post);

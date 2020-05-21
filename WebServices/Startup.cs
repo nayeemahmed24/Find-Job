@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AuthenticationService;
 using AuthenticationService.UserInformation;
+using Manager.Manager.ApplyManager;
 using ManagerService.Manager.AuthenticationManager.RoleManager;
 using ManagerService.Manager.AuthenticationManager.UserInfoManager;
 using ManagerService.Manager.AuthenticationManager.UserManager;
@@ -44,6 +45,8 @@ namespace WebServices
             services.AddTransient<UserManagerBase>();
             services.AddTransient<UserInfoService>();
             services.AddTransient<UserInfoManager>();
+            services.AddTransient<ApplyManger>();
+            services.AddTransient<ApplyService.ApplyService>();
             services.AddIdentity<UserAccount, IdentityRole>(config =>
                 {
                     config.Password.RequireDigit = false;

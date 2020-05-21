@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "PostService/1.0.0": {
         "dependencies": {
+          "ApplyService": "1.0.0",
           "AuthenticationService": "1.0.0",
           "Manager": "1.0.0",
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -1201,6 +1202,16 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "ApplyService/1.0.0": {
+        "dependencies": {
+          "AuthenticationService": "1.0.0",
+          "Manager": "1.0.0",
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "ApplyService.dll": {}
+        }
+      },
       "AuthenticationService/1.0.0": {
         "dependencies": {
           "Manager": "1.0.0",
@@ -2069,6 +2080,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "ApplyService/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "AuthenticationService/1.0.0": {
       "type": "project",

@@ -9,7 +9,8 @@ namespace ManagerService.Manager.PostManager
 {
     public interface IPostManager
     {
-        Task<Response> Create(Post post);
+        public Task<List<Post>> AllPosts();
+        public Task<Response> Create(Post post);
         public Task<Response> EditPost(Post Newpost, Post PrevPost);
         public Task<Response> DeletePost(Post post);
         public Task<Post> SearchPostByPostId(int postid);

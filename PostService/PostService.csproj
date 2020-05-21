@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ApplyService\ApplyService.csproj" />
     <ProjectReference Include="..\AuthenticationService\AuthenticationService.csproj" />
     <ProjectReference Include="..\ManagerService\Manager.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />

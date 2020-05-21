@@ -1,26 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AuthenticationService.UserInformation;
 using ManagerService.Manager.AuthenticationManager.UserInfoManager;
 using ManagerService.Manager.PostManager;
 using Models;
 using Models.Model;
+using Models.View_Model;
 
 namespace PostService
 {
     public class PostService : IPostService
     {
         private readonly PostManger _postManager;
-        private readonly UserInfoService _userInfoService;
-        public PostService(PostManger postManager,UserInfoService userInfoService)
+        
+        private readonly ApplyService.ApplyService _applyService; 
+        public PostService(PostManger postManager,ApplyService.ApplyService applyService)
         {
             _postManager = postManager;
-            _userInfoService = userInfoService;
+            _applyService = applyService;
         }
-        public async Task<Response> CreatePost(Post post,string username)
+
+        public async Task<List<Post>> AllPosts(UserInfo user)
         {
-            post.user =  await _userInfoService.GetUser(username);
+            List<Post> allPosts = await _postManager.AllPosts();
+            List<Apply> applies = await _applyService.FindApplyByUserAccout(user.user);
+            foreach (var apply in applies)
+            {
+                var itemToRemove = allPosts.Single(r => r.PostId == apply.PostId);
+                allPosts.Remove(itemToRemove);
+            }
+            return allPosts;
+        }
+
+        public async Task<Response> CreatePost(Post post)
+        {
             return await _postManager.Create(post);
         }
 
@@ -43,9 +58,8 @@ namespace PostService
 
        
 
-        public async Task<List<Post>> FindPostByUsername(string username)
+        public async Task<List<Post>> FindPostByUsername(UserAccount user)
         {
-            UserAccount user = await _userInfoService.GetUser(username);
             return await _postManager.SearchPostByUser(user);
         }
     }

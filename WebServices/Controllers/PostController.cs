@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AuthenticationService.UserInformation;
 using Microsoft.AspNetCore.Mvc;
 using Models.Model;
+using Models.View_Model;
 
 namespace WebServices.Controllers
 {
@@ -19,6 +20,15 @@ namespace WebServices.Controllers
             _userInfoService = userInfoService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            await AssignViewBag();
+            UserInfo userInfo = await GetUserInfoDetailes();
+            var posts = await _postService.AllPosts(userInfo);
+            ViewBag.Posts = posts;
+            return View();
+        }
+
         public async Task<IActionResult> Create()
         {
             await AssignViewBag();
@@ -29,7 +39,8 @@ namespace WebServices.Controllers
         {
             
             await AssignViewBag();
-            List<Post> posts = await _postService.FindPostByUsername(User.Identity.Name);
+            var user = await GetUserInfoDetailes();
+            List<Post> posts = await _postService.FindPostByUsername(user.user);
             ViewBag.Posts = posts;
             return View();
         }
@@ -62,8 +73,9 @@ namespace WebServices.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Post post)
         {
-            
-            var response =  await _postService.CreatePost(post,User.Identity.Name);
+            var user = await GetUserInfoDetailes();
+            post.user = user.user;
+            var response =  await _postService.CreatePost(post);
             if (response.Status)
             {
                 return RedirectToAction("MyPosts");
@@ -75,9 +87,14 @@ namespace WebServices.Controllers
 
         private async Task AssignViewBag()
         {
-            var detailes = await _userInfoService.GetUserDetailes(User.Identity.Name);
+            var detailes = await GetUserInfoDetailes();
             ViewBag.Name = detailes.user.Name;
             ViewBag.Role = detailes.roleName;
+        }
+
+        private async Task<UserInfo> GetUserInfoDetailes()
+        {
+            return await _userInfoService.GetUserDetailes(User.Identity.Name);
         }
     }
 }

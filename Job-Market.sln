@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Manager", "ManagerService\M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostService", "PostService\PostService.csproj", "{30243F27-7847-4B13-93E1-E25F241EF32E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplyService", "ApplyService\ApplyService.csproj", "{5BB6990C-3C80-47A6-BA44-3A54AC0D1FB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{30243F27-7847-4B13-93E1-E25F241EF32E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30243F27-7847-4B13-93E1-E25F241EF32E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30243F27-7847-4B13-93E1-E25F241EF32E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB6990C-3C80-47A6-BA44-3A54AC0D1FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB6990C-3C80-47A6-BA44-3A54AC0D1FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB6990C-3C80-47A6-BA44-3A54AC0D1FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB6990C-3C80-47A6-BA44-3A54AC0D1FB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
