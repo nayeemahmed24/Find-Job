@@ -8,6 +8,11 @@ namespace Models.Model
 {
     public class Apply
     {
+        public Apply(UserAccount _user, int postId)
+        {
+            user = _user;
+            PostId = postId;
+        }
         [Key] public int Id { get; set; }
         [ForeignKey("UserID")] public UserAccount user { get; set; }
         public int PostId { get; set; }

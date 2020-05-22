@@ -62,5 +62,17 @@ namespace PostService
         {
             return await _postManager.SearchPostByUser(user);
         }
+
+        public async Task<List<Post>> FindPostByApplies(List<Apply> applies)
+        {
+            List<Post> posts = new List<Post>();
+            foreach (var apply in applies)
+            {
+                Post post = await FindPostById(apply.PostId);
+                posts.Add(post);
+            }
+
+            return posts;
+        }
     }
 }

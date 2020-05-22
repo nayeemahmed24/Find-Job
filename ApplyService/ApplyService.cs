@@ -18,5 +18,12 @@ namespace ApplyService
         {
             return await _applyManger.FindApplyByUserAccount(user);
         }
+
+        public async Task<Response> Create(Apply apply)
+        {
+            return await _applyManger.CreateApply(apply);
+        }
+
+        
     }
 }

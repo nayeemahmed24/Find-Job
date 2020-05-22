@@ -10,5 +10,6 @@ namespace Manager.Manager.ApplyManager
     public interface IApplyManager
     {
         public Task<List<Apply>> FindApplyByUserAccount(UserAccount user);
+        public Task<Response> CreateApply(Apply apply);
     }
 }

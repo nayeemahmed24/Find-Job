@@ -16,5 +16,6 @@ namespace PostService
         public Task<Response> DeletePost(int id);
         public Task<Post> FindPostById(int id);
         public Task<List<Post>> FindPostByUsername(UserAccount user);
+        public Task<List<Post>> FindPostByApplies(List<Apply> applies);
     }
 }

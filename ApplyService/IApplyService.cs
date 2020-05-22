@@ -10,5 +10,7 @@ namespace ApplyService
     public interface IApplyService
     {
         public Task<List<Apply>> FindApplyByUserAccout(UserAccount user);
+        public Task<Response> Create(Apply apply);
+
     }
 }

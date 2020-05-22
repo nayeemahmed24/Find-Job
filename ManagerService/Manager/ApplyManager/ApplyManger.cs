@@ -21,5 +21,13 @@ namespace Manager.Manager.ApplyManager
         {
             return await _db.Apply.Where(d => d.user == user).ToListAsync();
         }
+
+        public async Task<Response> CreateApply(Apply apply)
+        {
+            var response = await _db.Apply.AddAsync(apply);
+            await _db.SaveChangesAsync();
+            if (response.Entity != null) return new Response(true);
+            return new Response(false);
+        }
     }
 }
