@@ -12,5 +12,7 @@ namespace ApplyService
         public Task<List<Apply>> FindApplyByUserAccout(UserAccount user);
         public Task<Response> Create(Apply apply);
 
+        public Task<List<Apply>> FindApplyByPostId(int postid);
+
     }
 }

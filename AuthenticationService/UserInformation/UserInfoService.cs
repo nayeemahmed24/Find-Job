@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ManagerService.Manager.AuthenticationManager.UserInfoManager;
 using Models;
+using Models.Model;
 using Models.View_Model;
 
 namespace AuthenticationService.UserInformation
@@ -27,6 +28,8 @@ namespace AuthenticationService.UserInformation
             return await _userInfoManager.getUserRole(username);
         }
 
+        
+        
         public async Task<UserInfo> GetUserDetailes(string username)
         {
             return new UserInfo(await GetUser(username),await GetUserRole(username));

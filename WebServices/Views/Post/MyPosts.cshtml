@@ -22,7 +22,7 @@
                 <form>
                     <input class="btn btn-info" style="margin-top: 8px; cursor: pointer" value="Edit" onclick="location.href='@Url.Action("Edit", "Post")?id='+@post.PostId" />
                     <input class="btn btn-danger" style="margin-top: 8px; cursor: pointer; margin-left: 8px" value="Delete" onclick="location.href='@Url.Action("Delete", "Post")?id='+@post.PostId" />
-                    @* <input class="btn btn-info" style="margin-top: 8px; cursor: pointer; margin-left: 8px" value="Applied" onclick="location.href='@Url.Action("Applied", "Post")?id='+@post.PostId" /> *@
+                    <input class="btn btn-info" style="margin-top: 8px; cursor: pointer; margin-left: 8px" value="Applied" onclick="location.href='@Url.Action("Applied", "Apply")?id='+@post.PostId" />
                 </form>
 
             </div>

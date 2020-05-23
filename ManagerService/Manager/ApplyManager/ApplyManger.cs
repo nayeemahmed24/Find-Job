@@ -10,7 +10,7 @@ using Models.Model;
 
 namespace Manager.Manager.ApplyManager
 {
-    public class ApplyManger:IApplyManager
+    public class ApplyManger : IApplyManager
     {
         private readonly ApplicationDbContext _db;
         public ApplyManger(ApplicationDbContext db)
@@ -28,6 +28,11 @@ namespace Manager.Manager.ApplyManager
             await _db.SaveChangesAsync();
             if (response.Entity != null) return new Response(true);
             return new Response(false);
+        }
+
+        public async Task<List<Apply>> FindApplyByPostId(int postid)
+        {
+            return await _db.Apply.Where(d => d.PostId == postid).Include(b=>b.user).ToListAsync();
         }
     }
 }

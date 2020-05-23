@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using AuthenticationService.UserInformation;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using Models.Model;
 using Models.View_Model;
 
@@ -22,10 +24,14 @@ namespace WebServices.Controllers
             _applyService = applyService;
             _userInfoService = userInfoService;
         }
+        [HttpGet]
         public async Task<IActionResult> Apply(int id)
         {
             var userInfo = await GetUserInfoDetailes();
-            var response = await _applyService.Create(new Apply(userInfo.user,id));
+            Apply ap = new Apply();
+            ap.user = userInfo.user;
+            ap.PostId = id;
+            var response = await _applyService.Create(ap);
             if (response.Status == true) return Json(new {result = "OK"}); 
             return Json(new { result = "Not OK"});
         }
@@ -36,7 +42,21 @@ namespace WebServices.Controllers
             var userInfo = await GetUserInfoDetailes();
             var applies = await _applyService.FindApplyByUserAccout(userInfo.user);
             var posts = await _postService.FindPostByApplies(applies);
-            ViewBag.Post = posts;
+            ViewBag.Posts = posts;
+            return View();
+        }
+        [HttpGet]
+        public async Task<IActionResult> Applied(int id)
+        {
+            var applies = await _applyService.FindApplyByPostId(id);
+            List<UserAccount> users = new List<UserAccount>();
+            foreach (var apply in applies)
+            {
+                users.Add(apply.user);
+            }
+
+            await AssignViewBag();
+            ViewBag.Users = users;  
             return View();
         }
 

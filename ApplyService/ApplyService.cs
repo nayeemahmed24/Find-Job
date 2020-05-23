@@ -24,6 +24,9 @@ namespace ApplyService
             return await _applyManger.CreateApply(apply);
         }
 
-        
+        public async Task<List<Apply>> FindApplyByPostId(int postid)
+        {
+            return await _applyManger.FindApplyByPostId(postid);
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace Manager.Manager.ApplyManager
     {
         public Task<List<Apply>> FindApplyByUserAccount(UserAccount user);
         public Task<Response> CreateApply(Apply apply);
+        public Task<List<Apply>> FindApplyByPostId(int postid);
+
     }
 }
